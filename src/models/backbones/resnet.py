@@ -200,6 +200,7 @@ def build_resnet50_fpn_backbone(config: Optional[ResNetBackboneConfig] = None) -
     #    (hint: use backbone.fc.in_features to determine channel progression)
     # 4. Create and return BackboneWithFPN with all components
     # This integrates ResNet feature extraction with FPN multi-scale features
+    print(config)
     raise NotImplementedError("build_resnet50_fpn_backbone() not implemented")
     # ===================================================================
 

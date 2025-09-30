@@ -127,7 +127,21 @@ def main():
             # 3. Sum all losses from the loss dictionary
             # 4. Backward pass: scale losses, compute gradients, step optimizer
             # 5. Update scaler for mixed precision training
-            raise NotImplementedError("Training step not implemented")
+            # raise NotImplementedError("Training step not implemented")
+
+            # 1. use autocast context for mixed precision if enabled
+            with autocast(enabled=use_amp):
+                ## move things onto device. 
+                print("image.device:", images[0].device)
+
+                # images = list(image.to(device) for image in images)
+                # targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
+
+                # # 2. Forward pass: get loss_dict from model(images, targets)
+                # loss_dict = model(images, targets)
+
+                # # 3. Sum all losses from the loss dictionary
+                # losses = sum(loss for loss in loss_dict.values())
             # ==================================================
 
             loss_sum += losses.item()
